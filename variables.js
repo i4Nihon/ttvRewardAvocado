@@ -3,4 +3,5 @@ module.exports = {
    streamerId: '',
    editorName: '',
    ttvCode: '',
+   name: '',
 }

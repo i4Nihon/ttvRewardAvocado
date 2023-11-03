@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
                 let dataFromFile = fs.readFileSync("../streamersNames.json").toString().slice(1, -1)
                 dataFromFile += `,\n"${userName}":"{accessToken: \"${values1.access_token}\",\nrefreshToken: \"${values1.refresh_token}\",\nexpiresIn: \"${values1.expiers_in}\""`
                 let data = `{${dataFromFile}}`
-                fs.writeFileSync("./test.json", data)
+                fs.writeFileSync("../streamersNames.json", data)
                 res.redirect('/redirect')
               }
 
@@ -36,7 +36,6 @@ router.get('/', async (req, res) => {
               res.render('failure', {
                 errorCode: "fail in getToken",
                 title: "failure",
-                TryAgainUrl: process.env.TRY_AGAIN_URL
               })
 
             }
@@ -60,6 +59,7 @@ function getUserName(token) {
     } else {
       vars.streamerId = stdout.data[0].id
       userName = stdout.data[0].login
+      vars.name = userName;
     }
   })
   return userName
