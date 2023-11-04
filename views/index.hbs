@@ -4,12 +4,14 @@
     <link rel="stylesheet" href="../stylesheets/home.css">
   </head>
   <body>
-        <form action="" id="streamerNickFrom">
-        <label for="whichStreamer">Podaj nick streamra u którego jesteś modem, bądź swój jeśli to ty streamujesz</label>
-          <input type="text" id="whichStreamer" placeholder="Nick...">
+  {{ERROR}}
+        <form method="POST">
+          <label for="whichStreamer">Podaj nick streamra u którego jesteś modem, bądź swój jeśli to ty streamujesz</label>
+          <input type="text" id="whichStreamer" name="whichStreamer" placeholder="Nick...">
           <input type="submit" id="submit" value="Potwierdź">
 
         </form>
+
 
 
   </body>

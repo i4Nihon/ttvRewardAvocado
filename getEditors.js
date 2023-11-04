@@ -1,7 +1,7 @@
 const {exec} = require("child_process")
 function getEditors(id, token, clientId, editorName){
   let founded = false;
-  const curlGetEditors = `curl -X GET "https://api.twitch.tv/helix/channels/editors?broadcaster_id=${id}" -H "Authorization: Bearer ${token}" -H "Client-Id:${clientId}"`
+  const curlGetEditors = `curl -X GET -k "https://api.twitch.tv/helix/channels/editors?broadcaster_id=${id}" -H "Authorization: Bearer ${token}" -H "Client-Id:${clientId}"`
   exec(curlGetEditors, (error, stdout) => {
     if (error) console.log(error)
     else {

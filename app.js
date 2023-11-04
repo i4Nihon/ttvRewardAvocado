@@ -10,6 +10,8 @@ const favicon = require('serve-favicon')
 const vars = require("./variables")
 const {exec} = require("child_process")
 const streamerNames = require("./streamersNames.json")
+const bodyParser = require("body-parser");
+
 
 const indexRouter = require('./routes/index')
 const authRouter = require('./routes/auth');
@@ -18,30 +20,17 @@ const editRewardRouter = require('./routes/editReward');
 const deleteRewardRouter = require('./routes/deleteReward');
 const tokenRouter = require('./routes/token');
 const homeRouter = require('./routes/home')
-const checkRouter = require('./routes/check')
 const redirectRouter = require('./routes/redirect')
-const {expiresIn} = require("./variables");
-
 
 const app = express();
 
 const secretKey = crypto.randomBytes(64).toString('hex');
 
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// Serializacja i deserializacja użytkownika (dla sesji)
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
-
+app.use(express.urlencoded({extended: true}))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
