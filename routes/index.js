@@ -6,6 +6,11 @@ router.get('/', (req, res) => {
     res.render("index")
 });
 
+router.get( '/', (req, res) => {
+    console.log(req.body.whichStreamer, "asdas");
+    res.send(req.body.whichStreamer);
+    checkStreamerInDb(req.body.whichStreamer)
+})
 
 function checkStreamerInDb(streamerName){
     if (streamerName !== undefined) {
@@ -41,6 +46,7 @@ function check(name) {
 
 router.post( '/', (req, res) => {
     console.log(req.body);
+    res.send(req.body);
     checkStreamerInDb(req.body)
 })
 

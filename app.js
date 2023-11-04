@@ -18,6 +18,7 @@ const editRewardRouter = require('./routes/editReward');
 const deleteRewardRouter = require('./routes/deleteReward');
 const tokenRouter = require('./routes/token');
 const homeRouter = require('./routes/home')
+const checkRouter = require('./routes/check')
 const redirectRouter = require('./routes/redirect')
 const {expiresIn} = require("./variables");
 
@@ -60,7 +61,6 @@ app.use('/deletereward', deleteRewardRouter);
 app.use('/home', homeRouter)
 app.use('/token', tokenRouter)
 app.use('/redirect', redirectRouter)
-
 
 
 // catch 404 and forward to error handler
