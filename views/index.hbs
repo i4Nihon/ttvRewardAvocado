@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../stylesheets/home.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
   </head>
   <body>
   {{ERROR}}
-        <form method="POST">
-          <label for="whichStreamer">Podaj nick streamra u którego jesteś modem, bądź swój jeśli to ty streamujesz</label>
-          <input type="text" id="whichStreamer" name="whichStreamer" placeholder="Nick...">
-          <input type="submit" id="submit" value="Potwierdź">
-
-        </form>
+  <form method="POST">
+      <label for="whichStreamer">Podaj nick streamra u którego jesteś modem, bądź swój jeśli to ty streamujesz</label>
+      <input type="text" id="whichStreamer" name="whichStreamer" placeholder="Nick..."><br>
+    <div class="center">
+      <label class="container">
+        Zaznacz jesteś streamerem
+        <input name="ifStreamer" id="ifStreamer" type="checkbox" >
+        <span class="checkmark"></span>
+      </label>
+    </div>
+      <input type="submit" id="submit" value="Potwierdź">
+  </form>
 
 
 

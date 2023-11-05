@@ -7,27 +7,24 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res, next) => {
-  if (check(req.body.whichStreamer) === true) {
-
-  }
-  else if (check(req.body.whichStreamer) === false){
-    res.render("index", {ERROR: "Brak nicku w bazie danych, streamer musi byc zarejstrowany w aplikacjis"})
-  }
-  else {
+  if (check(req.body.whichStreamer) === true && req.body.ifStreamer == "on") {
+    res.redirect("/auth")
+  } else if (check(req.body.whichStreamer) === false) {
+    res.render("index", {ERROR: "Brak nicku w bazie danych, streamer musi byc zarejstrowany w aplikacji"})
+  } else {
+    console.log(check(req.body.whichStreamer))
+    console.log(req.body.ifStreamer)
     res.render("index", {ERROR: "problem z nickiem"})
   }
 })
+
 function check(name) {
-  let nick;
-  for (const n in names) {
-    if (n === name)
-      return nick = n
-  }
-  if (nick === name) {
+
+  if (JSON.stringify(names).includes(name))
     return true
-  } else if (nick === undefined) {
+  else
     return false
-  }
+
 }
 
 module.exports = router;
