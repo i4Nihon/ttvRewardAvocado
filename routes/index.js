@@ -6,14 +6,14 @@ router.get('/', (req, res) => {
   res.render("index")
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
   if (check(req.body.whichStreamer) === true && req.body.ifStreamer == "on") {
     res.redirect("/auth")
   } else if (check(req.body.whichStreamer) === false) {
     res.render("index", {ERROR: "Brak nicku w bazie danych, streamer musi byc zarejstrowany w aplikacji"})
+  } else if (check(req.body.whichStreamer) === true && req.body.ifStreamer == undefined) {
+    res.redirect('/authMod')
   } else {
-    console.log(check(req.body.whichStreamer))
-    console.log(req.body.ifStreamer)
     res.render("index", {ERROR: "problem z nickiem"})
   }
 })

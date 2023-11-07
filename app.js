@@ -18,9 +18,9 @@ const authRouter = require('./routes/auth');
 const addRewardRouter = require('./routes/addReward');
 const editRewardRouter = require('./routes/editReward');
 const deleteRewardRouter = require('./routes/deleteReward');
-const tokenRouter = require('./routes/token');
 const homeRouter = require('./routes/home')
 const redirectRouter = require('./routes/redirect')
+const authModRouter = require("./routes/authMod")
 
 const app = express();
 
@@ -48,8 +48,8 @@ app.use('/addreward', addRewardRouter);
 app.use('/editreward', editRewardRouter);
 app.use('/deletereward', deleteRewardRouter);
 app.use('/home', homeRouter)
-app.use('/token', tokenRouter)
 app.use('/redirect', redirectRouter)
+app.use('/authmod', authModRouter)
 
 
 // catch 404 and forward to error handler
